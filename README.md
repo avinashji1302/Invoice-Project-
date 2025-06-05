@@ -1,20 +1,26 @@
-<<<<<<< HEAD
-# app
+# Flutter PDF Invoice App
 
-A new Flutter project.
+A simple Flutter app that generates an invoice PDF based on selected products, user name, and email.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Select products from a hardcoded list
+- Enter name and email
+- Generate invoice PDF
+- Preview, Download, and Share the PDF
 
-A few resources to get you started if this is your first Flutter project:
+## How to Run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Clone the repo or extract ZIP
+2. Run `flutter pub get`
+3. Run on device: `flutter run`
+4. Tap Generate PDF after filling form
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# Invoice-Project-
->>>>>>> bf94c14b3cb04a59857e10984165d7819d1be2f7
+## Packages Used
+
+- get
+- pdf
+- path_provider
+- syncfusion_flutter_pdfviewer
+- share_plus
+- open_file
