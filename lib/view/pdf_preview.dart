@@ -44,36 +44,52 @@ class _PdfPreviewScreenState extends State<PdfPreviewScreen> {
       await Share.shareXFiles([XFile(pdfFile!.path)], text: "Here's your invoice");
     }
   }
-   
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:const Text("Invoice Preview") , centerTitle: true,),
+      backgroundColor: const Color(0xFFF3E5F5), // Soft lavender
+      appBar: AppBar(
+        title: const Text("📄 Invoice Preview"),
+        backgroundColor: const Color.fromARGB(255, 173, 173, 173),
+        centerTitle: true,
+      ),
       body: pdfFile == null
-          ?const Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Column(
               children: [
                 Expanded(
-                  child: PDFView(
-                    filePath: pdfFile!.path,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: PDFView(
+                      filePath: pdfFile!.path,
+                    ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton.icon(
-                      onPressed: _downloadPdf,
-                      icon:const Icon(Icons.download),
-                      label:const Text("Download PDF"),
-                    ),
-                    ElevatedButton.icon(
-                      onPressed: _sharePdf,
-                      icon:const Icon(Icons.share),
-                      label:const Text("Share PDF"),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton.icon(
+                        onPressed: _downloadPdf,
+                        icon: const Icon(Icons.download, color: Colors.black),
+                        label: const Text("Download", style: TextStyle(color: Colors.black)),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(255, 173, 173, 173),
+                        ),
+                      ),
+                      ElevatedButton.icon(
+                        onPressed: _sharePdf,
+                        icon: const Icon(Icons.share ,  color: Colors.black),
+                        label: const Text("Share" , style: TextStyle(color: Colors.black),),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(255, 173, 173, 173),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              const  SizedBox(height: 16),
               ],
             ),
     );
